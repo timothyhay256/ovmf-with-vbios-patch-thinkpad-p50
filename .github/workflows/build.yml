@@ -38,7 +38,7 @@ jobs:
     - name: Build patched OVMF
       run: |
         ./bin/build.sh
-    - uses: actions/upload-artifact@v2.0.1
+    - uses: actions/upload-artifact@v3
       continue-on-error: true
       with:
         name: ovmf-patched
