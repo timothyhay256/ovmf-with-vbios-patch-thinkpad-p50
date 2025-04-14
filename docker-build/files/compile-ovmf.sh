@@ -17,18 +17,27 @@ export EDK_TOOLS_PATH="${SRC_DIR}/BaseTools"
 
 # Prepare for build
 cd ${SRC_DIR}
+echo "Git reset"
+git reset --hard
 mkdir -p bin
 ln -sf /usr/bin/python3 bin/python
+echo "Git pull"
 git pull
 
-# Make sure you don't have changes to keep
-git reset --hard
-git clean -fdx
-
 # Checkout the target commit
+echo "Git checkout"
 git checkout ba0e0e4
 
+echo "Git reset"
+git reset --hard
+
+# Clean OpenSSL submodule specifically
+echo "Cleaning OpenSSL submodule"
+git submodule deinit -f CryptoPkg/Library/OpensslLib/openssl
+rm -rf CryptoPkg/Library/OpensslLib/openssl
+
 # Reinit submodules
+echo "Git submodule update"
 git submodule update --init --recursive
 
 # Build Basetools
