@@ -20,13 +20,15 @@ cd ${SRC_DIR}
 mkdir -p bin
 ln -sf /usr/bin/python3 bin/python
 git pull
-#git checkout vUDK2018
-git checkout -f ba0e0e4
-# git pull --recurse-submodules
-cd CryptoPkg/Library/OpensslLib/openssl
+
+# Make sure you don't have changes to keep
+git reset --hard
 git clean -fdx
-# git checkout d82e959e621a3d597f1e0d50ff8c2d8b96915fd7
-cd ../../../..
+
+# Checkout the target commit
+git checkout ba0e0e4
+
+# Reinit submodules
 git submodule update --init --recursive
 
 # Build Basetools

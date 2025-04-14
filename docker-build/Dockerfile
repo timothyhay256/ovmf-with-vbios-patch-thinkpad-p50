@@ -7,5 +7,6 @@ RUN apt-get -qq -y update && \
 #RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 --slave /usr/bin/g++ g++ /usr/bin/g++-7 && \
 #    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 --slave /usr/bin/g++ g++ /usr/bin/g++-5 && \
 #    echo 1 | update-alternatives --config gcc
+RUN rm -rf edk2
 RUN git clone --recursive https://github.com/tianocore/edk2.git
 COPY files/ /ovmf
