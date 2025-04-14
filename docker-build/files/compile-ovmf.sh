@@ -23,7 +23,10 @@ git pull
 #git checkout vUDK2018
 git checkout -f ba0e0e4
 # git pull --recurse-submodules
-git clean -fd
+cd CryptoPkg/Library/OpensslLib/openssl
+git clean -fdx
+# git checkout d82e959e621a3d597f1e0d50ff8c2d8b96915fd7
+cd ../../../..
 git submodule update --init --recursive
 
 # Build Basetools
