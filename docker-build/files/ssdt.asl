@@ -6,8 +6,8 @@ DefinitionBlock ("", "SSDT", 1, "DOTLEG", "NVIDIAFU", 1) {
     // calculated as (slot << 3 | function), so S00 means slot 0 function 0 and S08 means slot 1
     // function 0. The real one is something like \_SB.PCI0.PEG0.PEGP. Change this if you put your
     // GPU elsewhere in the VM.
-    External (\_SB.PCI0.S08.S00, DeviceObj)
-    Scope (\_SB.PCI0.S08.S00) {
+    External (\_SB.PCI0.S10_.S00, DeviceObj)
+    Scope (\_SB.PCI0.S10.S00) {
         Name (FWIT, 0) // fw_cfg initialized
         Name (FWBI, Buffer () { 0 }) // fw_cfg binary
 
